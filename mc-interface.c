@@ -17,6 +17,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include "mc-interface.h"
 
 #define _TESTING_ 0
 #define CIPHER_NAME_SIZE 64  //size of the array to hold the cipher name
@@ -79,8 +80,8 @@ pmcrypt_ecb(int cipher, char *key, char *data, int mode, int conv_hex)
         encrypt = 0 ;
     
     blocksize = mcrypt_get_block_size( cipher ) ;
-    keylen    = strlen( key ) ;
-    datalen   = strlen( data ) ;
+    keylen    =  strlen( key ) ;
+    datalen   =  strlen( data ) ;
 
     // how many blocks we need for the data
     nr    = (datalen + blocksize - 1) / blocksize ;
@@ -98,11 +99,11 @@ pmcrypt_ecb(int cipher, char *key, char *data, int mode, int conv_hex)
         memcpy( ndata, data, datalen ) ;
         mcrypt_ecb( td, ndata, nsize ) ;
         end_mcrypt_ecb(td) ;
-        return( conv_hex ? bin2hex(ndata, nsize) : ndata );
+        return( ( conv_hex ? bin2hex(ndata, nsize) : ndata ) );
     } else {
         //hex2bin conversion needs 1/2 less space
         conv_hex ?
-            memcpy( ndata, hex2bin(data,datalen), datalen / 2 ) :
+            memcpy( ndata, hex2bin(data,datalen),  datalen / 2 ) :
             memcpy( ndata, data, datalen ) ;
         mdecrypt_ecb( td, ndata, nsize ) ;
         end_mcrypt_ecb(td) ;

@@ -1,5 +1,8 @@
 Revision history for Perl extension MCrypt.
 
+0.91  Fri Nov 21 21:47:53 EST 2000
+	- fix some compiler warnings. added mc-interface.h
+
 0.90  Fri Nov 17 21:47:53 EST 2000
 	- first release.
 
