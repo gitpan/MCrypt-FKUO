@@ -50,7 +50,7 @@ Exporter::export_ok_tags(qw(Types Functions Modes)) ;
 Exporter::export_tags( qw(Functions) ) ;
 # our @EXPORT = qw(
 # );
-our $VERSION = '0.91';
+our $VERSION = '0.92';
 
 # package MCrypt::Constants;
 # use strict;

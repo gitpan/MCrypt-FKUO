@@ -28,41 +28,41 @@ print "ok 4\n" ;
 # ################################################## 
 # ENCRYPT mcrypt_get_cbc
 $enc_hex = mcrypt_cbc_hex(MCrypt::MCRYPT_3DES, $key, $block, MCrypt::MCRYPT_ENCRYPT) ;
-print "not " unless ($enc_hex == $CBC ) ; 
+print "not " unless ($enc_hex eq $CBC ) ; 
 print "ok 5\n" ;
 # DECRYPT mcrypt_get_cbc
 $dec_hex = mcrypt_cbc_hex(MCrypt::MCRYPT_3DES, $key, $enc_hex, MCrypt::MCRYPT_DECRYPT) ;
-print "not " unless ($dec_hex == $block ) ; 
+print "not " unless ($dec_hex eq $block ) ; 
 print "ok 6\n" ;
 # ENCRYPT mcrypt_get_cbc with optional IV
 $enc_hex = mcrypt_cbc_hex(MCrypt::MCRYPT_3DES, $key, $block, MCrypt::MCRYPT_ENCRYPT, $IV) ;
-print "not " unless ($enc_hex == $CBC_iv ) ; 
+print "not " unless ($enc_hex eq $CBC_iv ) ; 
 print "ok 7\n" ;
 # DECRYPT mcrypt_cbc with optional IV
 $dec_hex = mcrypt_cbc_hex(MCrypt::MCRYPT_3DES, $key, $enc_hex, MCrypt::MCRYPT_DECRYPT, $IV) ;
-print "not " unless ($dec_hex == $block ) ; 
+print "not " unless ($dec_hex eq $block ) ; 
 print "ok 8\n" ;
 # ENCRYPT mcrypt_get_ecb
 $enc_hex = mcrypt_ecb_hex(MCrypt::MCRYPT_3DES, $key, $block, MCrypt::MCRYPT_ENCRYPT) ;
-print "not " unless ($enc_hex == $ECB ) ; 
+print "not " unless ($enc_hex eq $ECB ) ; 
 print "ok 9\n" ;
 # DECRYPT mcrypt_get_ecb
 $dec_hex = mcrypt_ecb_hex(MCrypt::MCRYPT_3DES, $key, $enc_hex, MCrypt::MCRYPT_DECRYPT) ;
-print "not " unless ($dec_hex == $block ) ; 
+print "not " unless ($dec_hex eq $block ) ; 
 print "ok 10\n" ;
 # ENCRYPT mcrypt_get_ofb
 $enc_hex = mcrypt_ofb_hex(MCrypt::MCRYPT_3DES, $key, $block, MCrypt::MCRYPT_ENCRYPT, $IV) ;
-print "not " unless ($enc_hex == $OFB ) ; 
+print "not " unless ($enc_hex eq $OFB ) ; 
 print "ok 11\n" ;
 # DECRYPT mcrypt_get_ofb
-$dec_hex = mcrypt_ofb_hex(MCrypt::MCRYPT_3DES, $key, $enc_hex, MCrypt::MCRYPT_ENCRYPT, $IV) ;
-print "not " unless ($enc_hex == $OFB ) ; 
+$dec_hex = mcrypt_ofb_hex(MCrypt::MCRYPT_3DES, $key, $enc_hex, MCrypt::MCRYPT_DECRYPT, $IV) ;
+print "not " unless ($dec_hex eq $block ) ; 
 print "ok 12\n" ;
 # ENCRYPT mcrypt_get_cfb
 $enc_hex = mcrypt_cfb_hex(MCrypt::MCRYPT_3DES, $key, $block, MCrypt::MCRYPT_ENCRYPT, $IV) ;
-print "not " unless ($enc_hex == $CFB ) ; 
+print "not " unless ($enc_hex eq $CFB ) ; 
 print "ok 13\n" ;
 # DECRYPT mcrypt_get_cfb
-$enc_hex = mcrypt_cfb_hex(MCrypt::MCRYPT_3DES, $key, $enc_hex, MCrypt::MCRYPT_ENCRYPT, $IV) ;
-print "not " unless ($enc_hex == $block ) ; 
+$dec_hex = mcrypt_cfb_hex(MCrypt::MCRYPT_3DES, $key, $enc_hex, MCrypt::MCRYPT_DECRYPT, $IV) ;
+print "not " unless ($dec_hex eq $block ) ; 
 print "ok 14\n" ;

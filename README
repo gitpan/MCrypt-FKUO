@@ -1,4 +1,4 @@
-                         MCrypt 0.91
+                         MCrypt 0.92
                Copyright (c) 2000, Frey Kuo
 
 ------------------------------------------------------------------------
@@ -60,11 +60,10 @@ work on *BSD systems also, as long as libmcrypt is in your library search
 path.  Please report any other successful OS/Platform combinations to me.
 Thanks.
 
-This is the first release, v0.9.  There may be bugs; please report them
-to the below address.  I would like feedback from users of this module - I
-may change some things around depending on how people plan on using this
-module.  Constructive criticism always welcome from seasoned perl module
-writers.
+There may be bugs; please report them to the below address.  I would like 
+feedback from users of this module - I may change some things around 
+depending on how people plan on using this module.  Constructive criticism 
+always welcome from seasoned perl module writers.
 
 This interface is used with the 2.2.x tree of the mcrypt library ONLY!
 The newer 2.5.x API is not supported yet; I don't use it myself, but I may
